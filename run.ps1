@@ -17,7 +17,7 @@ wget "https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.10.2/fabric-ins
 Start-Process -Wait -FilePath $fabric_destino
 
 # Instalaçao dos mods basicos
-$mods_destino = "$env:APPDATA\.minecraft\modes"
+$mods_destino = "$env:APPDATA\.minecraft\mods"
 
 if ( -not (Test-Path $mods_destino) ){
     mkdir $mods_destino # Garantir que existe a pasta minecraft e mods no appdata
@@ -40,3 +40,20 @@ wget "https://media.forgecdn.net/files/3717/575/optifabric-1.13.0.jar" -OutFile 
 wget "https://optifine.net/downloadx?f=OptiFine_1.18.2_HD_U_H7.jar&x=b8e23266b4500fad461f6860ec3c0c04" -OutFile "$mods_destino\OptiFine_1.18.2_HD_U_H7.jar"
 
 
+$input = Read-Host "Deseja instalar os mods opcionais? [S] Sim - [N] Nao (Padrao)"
+$input = $input.ToLower()
+
+if ( ($input -match "s" ) -or ($input -match "sim") ){
+    echo "Instalando o Litematica"
+    wget "https://media.forgecdn.net/files/3751/645/litematica-fabric-1.18.2-0.11.2.jar" -OutFile "$mods_destino\litematica-fabric-1.18.2-0.11.2.jar"
+
+    echo "Instalando o Mini-Hud"
+    wget "https://media.forgecdn.net/files/3671/392/minihud-fabric-1.18.2-0.22.0.jar" -OutFile "$mods_destino\minihud-fabric-1.18.2-0.22.0.jar"
+
+    echo "Instalando o Tweakeroo"
+    wget "https://media.forgecdn.net/files/3672/640/tweakeroo-fabric-1.18.2-0.13.1.jar" -OutFile "$mods_destino\tweakeroo-fabric-1.18.2-0.13.1.jar"
+
+}
+
+
+echo "Instalacoes concluidas"
