@@ -9,7 +9,12 @@ if ( -not (WMIC product get name | findstr /R "Minecraft") ){
     Start-Process -Wait -FilePath $destino
 }
 
-echo "Instalaçao do fabric"
+echo "Abrindo o minecraft por 15s. Gerando arquivos base."
+$p = Start-Process -FilePath "C:\Program Files (x86)\Minecraft Launcher\MinecraftLauncher.exe" -PassThru
+Start-Sleep -s 10
+Stop-Process -InputObject $p
+
+echo "Instalacao do fabric"
 $fabric_destino = "$env:TEMP\fabric-installer.exe" # Destino para a pasta temporaria do sistema
 wget "https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.10.2/fabric-installer-0.10.2.exe" -OutFile $fabric_destino
 
@@ -20,13 +25,16 @@ $mods_destino = "$env:APPDATA\.minecraft\mods"
 
 if ( -not (Test-Path $mods_destino) ){
     mkdir $mods_destino # Garantir que existe a pasta minecraft e mods no appdata
-}  
+}
 
 # MODO BUTRO (FEIO Q DOI)
 # Todo: Usar a propria api do curse forge
 
 echo "Instalando fabric-api"
 wget "https://media.forgecdn.net/files/3759/491/fabric-api-0.51.1%2B1.18.2.jar" -OutFile "$mods_destino\fabric-api-0.51.1+1.18.2.jar"
+
+echo "Instalando malilib"
+wget "https://media.forgecdn.net/files/3692/220/malilib-fabric-1.18.2-0.12.1.jar" -OutFile "$mods_destino\malilib-fabric-1.18.2-0.12.1.jar"
 
 echo "Instalando ModMenu"
 wget "https://media.forgecdn.net/files/3745/497/modmenu-3.1.1.jar" -OutFile "$mods_destino\modmenu-3.1.1.jar"
@@ -56,3 +64,5 @@ if ( ($input -match "s" ) -or ($input -match "sim") ){
 
 
 echo "Instalacoes concluidas"
+
+Start-Process -FilePath "C:\Program Files (x86)\Minecraft Launcher\MinecraftLauncher.exe"
