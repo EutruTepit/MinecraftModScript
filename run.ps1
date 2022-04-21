@@ -44,7 +44,7 @@ wget "https://media.forgecdn.net/files/3732/702/voicechat-fabric-1.18.2-2.2.32.j
 
 echo "Instalando o Optifine"
 wget "https://media.forgecdn.net/files/3717/575/optifabric-1.13.0.jar" -OutFile "$mods_destino\optifabric-1.13.0.jar"
-wget "https://optifine.net/downloadx?f=OptiFine_1.18.2_HD_U_H7.jar&x=b8e23266b4500fad461f6860ec3c0c04" -OutFile "$mods_destino\OptiFine_1.18.2_HD_U_H7.jar"
+wget "https://optifine.net/downloadx?f=OptiFine_1.18.2_HD_U_H6.jar&x=7f5d48be430428cd2187cdd9a94653ce" -OutFile "$mods_destino\OptiFine_1.18.2_HD_U_H6.jar"
 
 
 $input = Read-Host "Deseja instalar os mods opcionais? [S] Sim - [N] Nao (Padrao)"
