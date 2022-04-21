@@ -9,7 +9,7 @@ Lista dos mods:
 - simple-voice-chat
 - optifabric / optifine
 
-  Optionais:
+  Opcionais:
 
   - litematica
   - mini-hud
