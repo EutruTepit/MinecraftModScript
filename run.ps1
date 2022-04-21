@@ -9,8 +9,7 @@ if ( -not (WMIC product get name | findstr /R "Minecraft") ){
     Start-Process -Wait -FilePath $destino
 }
 
-# Instalaçao do fabric
-
+echo "Instalaçao do fabric"
 $fabric_destino = "$env:TEMP\fabric-installer.exe" # Destino para a pasta temporaria do sistema
 wget "https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.10.2/fabric-installer-0.10.2.exe" -OutFile $fabric_destino
 
