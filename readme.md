@@ -36,3 +36,51 @@ Lista dos mods:
   - litematica
   - mini-hud
   - tweakeroo
+
+Lista de resourcepacks ([Vanilla Tweaks](https://vanillatweaks.net/picker/resource-packs/)):
+
+- Utilidades (<https://vanillatweaks.net/share#fDipAq>):
+
+  - FullAgeCropMarker
+  - HungerPreview
+  - StickyPistonSides
+  - FullAgeAmethystMarker
+  - DirectionalHoppers
+  - DirectionalDispensersDroppers
+  - BetterObservers
+  - RedstonePowerLevels
+  - BrewingGuide
+  - VisualComposterStages
+  - VisualCauldronStages
+  - VisualHoney
+  - GroovyLevers
+  - ClearBannerPatterns
+
+- Estético (<https://vanillatweaks.net/share#ObWaXv>):
+
+  - UniqueDyes
+  - RedIronGolemFlowers
+  - DifferentStems
+  - VariatedDirt
+  - VariatedBricks
+  - VariatedCobblestone
+
+- Qualidade de vida (<https://vanillatweaks.net/share#7Qumix>):
+
+  - PingColorIndicator
+  - SmootherFont
+  - CatFix
+  - ItemHoldFix
+  - SoulSoilSoulCampfire
+  - UnobtrusiveScaffolding
+  - InvisibleTotem
+
+- Silencio (<https://vanillatweaks.net/share#U26vvU>):
+
+  - QuieterVillagers
+  - QuieterPistons
+  - QuieterCows
+  - QuieterNetherPortals
+  - QuieterMinecarts
+  - QuieterDispensersDroppers
+  - QuieterWate

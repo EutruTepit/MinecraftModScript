@@ -63,6 +63,31 @@ if ( ($input -match "s" ) -or ($input -match "sim") ){
 }
 
 
+$input = Read-Host "Deseja instalar os resourcepacks opcionais? [S] Sim - [N] Nao (Padrao)"
+$input = $input.ToLower()
+
+if ( ($input -match "s" ) -or ($input -match "sim") ){
+    # Instalaçao dos resourcepacks
+    $resourcepacks_destino = "$env:APPDATA\.minecraft\resourcepacks"
+
+    if ( -not (Test-Path $resourcepacks_destino) ){
+        mkdir $resourcepacks_destino # Garantir que existe a pasta
+    }
+
+    echo "Instalando o Utilidades"
+    wget "https://vanillatweaks.net/share#fDipAq" -OutFile "$resourcepacks_destino\Utilidades_1-18.zip"
+
+    echo "Instalando o Estético"
+    wget "https://vanillatweaks.net/share#ObWaXv" -OutFile "$resourcepacks_destino\Estetico_1-18.zip"
+
+    echo "Instalando o Qualidade de vida"
+    wget "https://vanillatweaks.net/share#7Qumixr" -OutFile "$resourcepacks_destino\Qualidade_de_vida_1-18.zip"
+
+    echo "Instalando o Silencio"
+    wget "https://vanillatweaks.net/share#U26vvU" -OutFile "$resourcepacks_destino\Silencio_1-18.zip"
+    
+}
+
 echo "Instalacoes concluidas"
 
 Start-Process -FilePath "C:\Program Files (x86)\Minecraft Launcher\MinecraftLauncher.exe"
