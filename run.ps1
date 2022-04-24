@@ -9,16 +9,26 @@ if ( -not (WMIC product get name | findstr /R "Minecraft") ){
     Start-Process -Wait -FilePath $destino
 }
 
-echo "Abrindo o minecraft por 15s. Gerando arquivos base."
+echo "Abrindo o minecraft por 10s. Gerando arquivos base."
 $p = Start-Process -FilePath "C:\Program Files (x86)\Minecraft Launcher\MinecraftLauncher.exe" -PassThru
 Start-Sleep -s 10
 Stop-Process -InputObject $p
 
 echo "Instalacao do fabric"
-$fabric_destino = "$env:TEMP\fabric-installer.exe" # Destino para a pasta temporaria do sistema
-wget "https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.10.2/fabric-installer-0.10.2.exe" -OutFile $fabric_destino
+$fabric_destino = "$env:TEMP\fabric-installer.jar" # Destino para a pasta temporaria do sistema
+wget "https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.10.2/fabric-installer-0.10.2.jar" -OutFile $fabric_destino
 
-Start-Process -Wait -FilePath $fabric_destino
+$java_runtime = "C:\Program Files (x86)\Minecraft Launcher\runtime\java-runtime-beta\windows-x64\java-runtime-beta\bin\java.exe"
+$commando = "-jar $env:TEMP\fabric-installer.jar client -mcversion 1.18.2"
+$redirect_standard_error = "$env:TEMP\mod_script.log"
+
+Start-Process -Wait -FilePath $java_runtime -ArgumentList $commando -RedirectStandardError $redirect_standard_error
+
+if ( -not (get-childitem $redirect_standard_error).length -eq 0 ){
+    echo "erro!"
+    get-content $redirect_standard_error
+    exit
+}
 
 # Instalaçao dos mods basicos
 $mods_destino = "$env:APPDATA\.minecraft\mods"
@@ -28,7 +38,7 @@ if ( -not (Test-Path $mods_destino) ){
 }
 
 # MODO BUTRO (FEIO Q DOI)
-# Todo: Usar a propria api do curse forge
+# Todo: Usar a propria api do curse forge (talvez não será possivel, uso de key)
 
 echo "Instalando fabric-api"
 wget "https://media.forgecdn.net/files/3759/491/fabric-api-0.51.1%2B1.18.2.jar" -OutFile "$mods_destino\fabric-api-0.51.1+1.18.2.jar"

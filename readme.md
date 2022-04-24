@@ -20,9 +20,7 @@ iwr -useb https://raw.githubusercontent.com/EutruTepit/MinecraftModScript/main/r
 
 ## Como Funciona
 
-O script verifica a existência de uma instalção do minecraft, caso não tenha irá direcionar uma instalação do Minecraft Launcher. Após a verificação, ou instalção, irá baixar o instalador do fabric, irá abrir uma janela com as configurações do fabric. Neste momento o verifique se a versão selecionada é a **1.18.2**, todos os mods que serão instalados posteriormente **só funcionarão nesta versão**, verifique o exemplo de como deve ficar na imagem abaixo.
-
-![Exemplo](/img/exemplo.png)
+O script verifica a existência de uma instalção do minecraft, caso não tenha irá direcionar uma instalação do Minecraft Launcher. Após a verificação, ou instalção, irá baixar e executar o instalador do fabric instalando a versão 1.18.2.
 
 Lista dos mods:
 
