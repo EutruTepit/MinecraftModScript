@@ -4,7 +4,7 @@ if ( -not (WMIC product get name | findstr /R "Minecraft") ){
     echo "Baixando Minecraft launcher"
     $destino = "$env:TEMP\MinecraftInstaller.exe" # Destino para a pasta temporaria do sistema
     wget "https://launcher.mojang.com/download/MinecraftInstaller.exe" -OutFile $destino
-
+    # TODO: usar o instalador MSI para full atumatização da instalação
     # Executando o Instalador do minecraft na pasta temporaria do sistema
     Start-Process -Wait -FilePath $destino
 }
@@ -69,6 +69,9 @@ if ( ($input -match "s" ) -or ($input -match "sim") ){
 
     echo "Instalando o Tweakeroo"
     wget "https://media.forgecdn.net/files/3672/640/tweakeroo-fabric-1.18.2-0.13.1.jar" -OutFile "$mods_destino\tweakeroo-fabric-1.18.2-0.13.1.jar"
+    
+    echo "Instalando o Inventory-Profiles-Next"
+    wget "https://media.forgecdn.net/files/3800/837/InventoryProfilesNext-fabric-1.18.2-1.4.0.jar" -OutFile "$mods_destino\InventoryProfilesNext-fabric-1.18.2-1.4.0.jar"
 
 }
 
