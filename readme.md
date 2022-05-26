@@ -34,6 +34,7 @@ Lista dos mods:
   - litematica
   - mini-hud
   - tweakeroo
+  - Inventory-Profiles-Next
 
 Lista de resourcepacks ([Vanilla Tweaks](https://vanillatweaks.net/picker/resource-packs/)):
 
